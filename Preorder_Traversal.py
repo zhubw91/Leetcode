@@ -9,16 +9,20 @@ class Solution:
     # @param root, a tree node
     # @return a list of integers
     def preorderTraversal(self, root):
-        stack = []
+        if root == None:
+            return []
+        stack = [root]
         result = []
-        node = root
-        while node != None or len(stack) > 0:
-        	if node != None:
-        		result.append(node.val)
-        		stack.append(node)
-        		node = node.left
-        	else:
-        		node = stack.pop()
-        		node = node.right
+        while len(stack) > 0:
+            node = stack.pop()
+            result.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+
         return result
+
+        
+        
 

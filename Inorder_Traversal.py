@@ -12,14 +12,14 @@ class Solution:
         stack = []
         result = []
         node = root
-        while len(stack) > 0 or node != None:
-        	if node != None:
-        		stack.append(node)
-        		node = node.left
-        	else:
-        		node = stack.pop()
-        		result.append(node.val)
-        		node = node.right
+        while node or len(stack) > 0:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                result.append(node.val)
+                node = node.right
         return result
 
 
